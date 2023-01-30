@@ -27,7 +27,7 @@ export const index = async (req: Request, res: Response) => {
 }
 
 /**
- * Get a single resource
+ * Get a single product
  */
 export const show = async (req: Request, res: Response) => {
     const { productId } = req.params
