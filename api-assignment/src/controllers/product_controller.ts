@@ -42,7 +42,7 @@ export const show = async (req: Request, res: Response) => {
             data: product,
         })
     } catch(err){
-        debug("Thrown error cause you fucked up probably something related to %o %o.", req.params, err)
+        debug("Thrown error cause you fucked up, it's probably something related to %o %o.", req.params, err)
         res.status(500).send({ status: "error", message: "Something is fucking wrong"})
     }
 }
@@ -51,6 +51,13 @@ export const show = async (req: Request, res: Response) => {
  * Create a product
  */
 export const store = async (req: Request, res: Response) => {
+    const validationErrors = validationResult(req)
+    if (!validationErrors.isEmpty()) {
+		return res.status(400).send({
+			status: "fail",
+			data: validationErrors.array(),
+		})
+	}
     try{
         const { name, description, price, images, stock_status, stock_quantity, on_sale } = req.body
         const product = await prisma.product.create({

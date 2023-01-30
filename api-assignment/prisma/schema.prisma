@@ -12,11 +12,11 @@ model Product {
   name            String     
   description     String      @db.Text
   price           Int         @db.UnsignedInt
-  images          Json?       @default("{}")
+  images          Json       @default("{}")
   stock_status    String
   stock_quantity  Int         @db.UnsignedInt
   on_sale         Boolean?
-  order_items     OrderItem[]      
+  items     OrderItem[]      
 }
 
 model Order {
@@ -29,11 +29,11 @@ model Order {
   customer_email        String //Could be unique
   customer_phone        String  @db.VarChar(20)
   order_total           Int
-  order_items           OrderItem[]
+  items                 OrderItem[]
   }
 
 model OrderItem {
-  product_id    Int        @unique  @db.UnsignedInt
+  product_id    Int        @unique @db.UnsignedInt
   productId     Product    @relation(fields: [product_id],  references: [id])
   qty           Int        @db.UnsignedInt
   item_price    Int        @db.UnsignedInt

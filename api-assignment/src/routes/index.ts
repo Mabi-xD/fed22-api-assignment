@@ -1,5 +1,6 @@
 import express from "express"
 import products from './products'
+import orders from './orders'
 
 // instantiate a new router
 const router = express.Router()
@@ -19,5 +20,6 @@ router.get('/', (req, res) => {
 // router.use('/resource', resource)
 
 router.use('/products', products)
+router.use('/orders', orders)
 
 export default router
