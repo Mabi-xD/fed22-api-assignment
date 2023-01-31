@@ -1,6 +1,3 @@
-/**
- * Controller Template
- */
 import Debug from 'debug'
 import { Request, Response } from 'express'
 import { validationResult } from 'express-validator'
@@ -47,7 +44,7 @@ export const show = async (req: Request, res: Response) => {
     }
 }
 
-/**
+/**npm
  * Create a product
  */
 export const store = async (req: Request, res: Response) => {

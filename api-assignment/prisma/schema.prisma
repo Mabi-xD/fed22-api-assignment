@@ -12,7 +12,7 @@ model Product {
   name            String     
   description     String      @db.Text
   price           Int         @db.UnsignedInt
-  images          Json       @default("{}")
+  images          Json        @default("{}")
   stock_status    String
   stock_quantity  Int         @db.UnsignedInt
   on_sale         Boolean?
