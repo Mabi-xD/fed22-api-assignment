@@ -1,6 +1,3 @@
-/**
- * Controller Template
- */
 import Debug from 'debug'
 import { Request, Response } from 'express'
 import { validationResult } from 'express-validator'
@@ -29,23 +26,23 @@ export const index = async (req: Request, res: Response) => {
 /**
  * Get a single order
  */
-export const show = async (req: Request, res: Response) => {
-    const { orderId } = req.params
-    try {
-        const order = await prisma.orderItem.findUniqueOrThrow({
-        where: {
-            id: Number(orderId)
-        },
-        })
-        res.send({
-            status: "success",
-            data: order,
-        })
-    } catch(err){
-        debug("Thrown error cause you fucked up, it's probably something related to %o %o.", req.params, err)
-        res.status(500).send({ status: "error", message: "Something is fucking wrong"})
-    }
-}
+// export const show = async (req: Request, res: Response) => {
+//     const { orderId } = req.params
+//     try {
+//         const order = await prisma.orderItem.findFirst({
+//         where: {
+//             orderId: Number(orderId)
+//         },
+//         })
+//         res.send({
+//             status: "success",
+//             data: order,
+//         })
+//     } catch(err){
+//         debug("Thrown error cause you fucked up, it's probably something related to %o %o.", req.params, err)
+//         res.status(500).send({ status: "error", message: "Something is fucking wrong"})
+//     }
+// }
 
 /**
  * Create order_items

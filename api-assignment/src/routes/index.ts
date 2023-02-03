@@ -14,11 +14,6 @@ router.get('/', (req, res) => {
 	})
 })
 
-/**
- * [EXAMPLE] /resource
- */
-// router.use('/resource', resource)
-
 router.use('/products', products)
 router.use('/orders', orders)
 

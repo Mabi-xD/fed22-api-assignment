@@ -16,7 +16,7 @@ model Product {
   stock_status    String
   stock_quantity  Int         @db.UnsignedInt
   on_sale         Boolean?
-  items     OrderItem[]      
+  order_items     OrderItem[]      
 }
 
 model Order {
@@ -29,7 +29,7 @@ model Order {
   customer_email        String //Could be unique
   customer_phone        String  @db.VarChar(20)
   order_total           Int
-  items                 OrderItem[]
+  order_items                 OrderItem[]
   }
 
 model OrderItem {
@@ -38,8 +38,8 @@ model OrderItem {
   qty           Int        @db.UnsignedInt
   item_price    Int        @db.UnsignedInt
   item_total    Int        @db.UnsignedInt
-  order_id      Int        @db.UnsignedInt 
-  orderId       Order      @relation(fields: [order_id],  references: [id])
+  order_id      Int?       @db.UnsignedInt 
+  orderId       Order?     @relation(fields: [order_id],  references: [id])
 }
 
 
