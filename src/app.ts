@@ -10,5 +10,5 @@ app.use(morgan('dev'))
 
 // Use routes
 app.use(routes)
-console.log('Hej')
+
 export default app
