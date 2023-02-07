@@ -7,7 +7,7 @@ import { validationResult } from 'express-validator'
 import prisma from '../prisma'
 
 // Create a new debug instance
-const debug = Debug('prisma-boilerplate:order_controller')
+const debug = Debug('api-assignment:order_controller')
 
 /**
  * Get all orders
@@ -88,7 +88,8 @@ include: {
             data: order,
         })
     } catch(err){
-            debug("Error thrown when creating a order %o: %o", req.params.orderId, err)
+            debug("Error thrown when creating a order %o", err)
+            console.log(err)
             res.status(500).send({ status: "error", message: "Something went wrong" })
         }
 }
