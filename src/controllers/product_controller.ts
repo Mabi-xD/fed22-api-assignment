@@ -4,7 +4,7 @@ import { validationResult } from 'express-validator'
 import prisma from '../prisma'
 
 // Create a new debug instance
-const debug = Debug('prisma-boilerplate:I_AM_LAZY_AND_HAVE_NOT_CHANGED_THIS_😛')
+const debug = Debug('api-assignment:I_AM_LAZY_AND_HAVE_NOT_CHANGED_THIS_😛')
 
 /**
  * Get all products
@@ -39,8 +39,8 @@ export const show = async (req: Request, res: Response) => {
             data: product,
         })
     } catch(err){
-        debug("Thrown error cause you fucked up, it's probably something related to %o %o.", req.params, err)
-        res.status(500).send({ status: "error", message: "Something is fucking wrong"})
+        debug("Thrown error cause something didn't go as planned, it's probably something related to %o %o.", req.params, err)
+        res.status(500).send({ status: "error", message: "Something is definitely wrong here"})
     }
 }
 

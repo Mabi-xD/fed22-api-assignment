@@ -28,7 +28,10 @@ router.post('/', [
     body('customer_email').isString().isEmail().withMessage('This gotta be a string'),
     body('customer_phone').isString().isLength({max:20}).withMessage('This gotta be a string and cant be longer than 20 chars.'),
     body('order_total').isInt().withMessage('This gotta be a number.'),
-
+    body('order_items.*.product_id').isInt({min: 1}).bail().withMessage('Has to be a number and atleast 1'),
+    body('order_items.*.qty').isInt({min: 1}).bail().withMessage('Has to be a number and not 0'),
+    body('order_items.*.item_price').isInt({min: 1}).bail().withMessage('Has to be a number and not 0'),
+    body('order_items.*.item_total').isInt({min: 1}).bail().withMessage('Has to be a number and not 0')
 ], store)
 
 // /**

@@ -15,9 +15,6 @@ const debug = Debug('api-assignment:order_controller')
 export const index = async (req: Request, res: Response) => {
     try {
         const orders = await prisma.order.findMany({
-            include:{
-                order_items: true   
-            }  
         })
         res.send({
             status: "success",
@@ -47,8 +44,8 @@ export const show = async (req: Request, res: Response) => {
             data: order,
         })
     } catch(err){
-        debug("Thrown error cause you fucked up, it's probably something related to %o %o.", req.params, err)
-        res.status(500).send({ status: "error", message: "Something is fucking wrong"})
+        debug("Thrown error cause something is wrong, it's probably something related to %o %o.", req.params, err)
+        res.status(500).send({ status: "error", message: "Something is wrong, I can feel it"})
     }
 }
 
