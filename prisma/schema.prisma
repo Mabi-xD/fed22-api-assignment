@@ -39,7 +39,7 @@ model OrderItem {
   qty           Int        @db.UnsignedInt
   item_price    Int        @db.UnsignedInt
   item_total    Int        @db.UnsignedInt
-  order_id      Int        @unique @db.UnsignedInt 
+  order_id      Int        @db.UnsignedInt
   orderId       Order      @relation(fields: [order_id],  references: [id])
 }
 

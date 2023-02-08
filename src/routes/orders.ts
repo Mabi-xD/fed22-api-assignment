@@ -27,7 +27,8 @@ router.post('/', [
     body('customer_city').isString().withMessage('This gotta be a string'),
     body('customer_email').isString().isEmail().withMessage('This gotta be a string'),
     body('customer_phone').isString().isLength({max:20}).withMessage('This gotta be a string and cant be longer than 20 chars.'),
-    body('order_total').isInt().withMessage('This gotta be a number.')
+    body('order_total').isInt().withMessage('This gotta be a number.'),
+
 ], store)
 
 // /**

@@ -36,7 +36,6 @@ CREATE TABLE `OrderItem` (
     `item_total` INTEGER UNSIGNED NOT NULL,
     `order_id` INTEGER UNSIGNED NOT NULL,
 
-    UNIQUE INDEX `OrderItem_order_id_key`(`order_id`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
